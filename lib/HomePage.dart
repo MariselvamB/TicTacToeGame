@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(10),
                     child: TextButton(
                       child: const Text('Play Again!',
-                          style: TextStyle(fontSize: 15, color: Colors.white)),
+                          style: TextStyle(fontSize: 15, color: Colors.black)),
                       onPressed: () {
                         _clearBoard();
                         Navigator.of(context).pop();
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(10),
                     child: TextButton(
                       child: const Text('Exit',
-                          style: TextStyle(fontSize: 15, color: Colors.white)),
+                          style: TextStyle(fontSize: 15, color: Colors.black)),
                       onPressed: () {
                         Navigator.push(
                             context,
