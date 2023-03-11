@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tictactoegame/logoScreen.dart';
+import 'package:tictactoegame/screens/logoScreen.dart';
 
 void main() {
   runApp(const MyApp());

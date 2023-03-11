@@ -2,7 +2,7 @@
 
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:tictactoegame/HomePage.dart';
+import 'package:tictactoegame/screens/HomePage.dart';
 
 class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});

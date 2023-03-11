@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:tictactoegame/logoScreen.dart';
+import 'package:tictactoegame/screens/logoScreen.dart';
+import 'package:tictactoegame/units/App_Units.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -13,11 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int ohScore = 0;
-  int exScore = 0;
-  int filledBoxes = 0;
-  bool ohTurn = true;
-  List<String> displayExOh = ["", "", "", "", "", "", "", "", ""];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -53,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                                 TextStyle(fontSize: 20, color: Colors.white)),
                         Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text(exScore.toString(),
+                          child: Text(AppUnits.exScore.toString(),
                               style: const TextStyle(
                                   fontSize: 20, color: Colors.white)),
                         ),
@@ -76,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                                 TextStyle(fontSize: 20, color: Colors.white)),
                         Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text(ohScore.toString(),
+                          child: Text(AppUnits.ohScore.toString(),
                               style: const TextStyle(
                                   fontSize: 20, color: Colors.white)),
                         ),
@@ -121,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                 spreadRadius: 2),
                           ]),
                       child: Center(
-                        child: Text(displayExOh[index],
+                        child: Text(AppUnits.displayExOh[index],
                             style: const TextStyle(
                                 fontSize: 40, color: Colors.white)),
                       ),
@@ -149,59 +145,59 @@ class _HomePageState extends State<HomePage> {
 
   void _tapped(int index) {
     setState(() {
-      if (ohTurn) {
-        displayExOh[index] = "O";
-        filledBoxes += 1;
+      if (AppUnits.ohTurn) {
+        AppUnits.displayExOh[index] = "O";
+        AppUnits.filledBoxes += 1;
       } else {
-        displayExOh[index] = "X";
-        filledBoxes += 1;
+        AppUnits.displayExOh[index] = "X";
+        AppUnits.filledBoxes += 1;
       }
-      ohTurn = !ohTurn;
+      AppUnits.ohTurn = !AppUnits.ohTurn;
       _checkWinner();
     });
   }
 
   void _checkWinner() {
-    if (displayExOh[0] == displayExOh[1] &&
-        displayExOh[0] == displayExOh[2] &&
-        displayExOh[0] != "") {
-      _showWinDialog(displayExOh[0]);
+    if (AppUnits.displayExOh[0] == AppUnits.displayExOh[1] &&
+        AppUnits.displayExOh[0] == AppUnits.displayExOh[2] &&
+        AppUnits.displayExOh[0] != "") {
+      _showWinDialog(AppUnits.displayExOh[0]);
     }
-    if (displayExOh[3] == displayExOh[4] &&
-        displayExOh[3] == displayExOh[5] &&
-        displayExOh[3] != "") {
-      _showWinDialog(displayExOh[3]);
+    if (AppUnits.displayExOh[3] == AppUnits.displayExOh[4] &&
+        AppUnits.displayExOh[3] == AppUnits.displayExOh[5] &&
+        AppUnits.displayExOh[3] != "") {
+      _showWinDialog(AppUnits.displayExOh[3]);
     }
-    if (displayExOh[6] == displayExOh[7] &&
-        displayExOh[6] == displayExOh[8] &&
-        displayExOh[6] != "") {
-      _showWinDialog(displayExOh[6]);
+    if (AppUnits.displayExOh[6] == AppUnits.displayExOh[7] &&
+        AppUnits.displayExOh[6] == AppUnits.displayExOh[8] &&
+        AppUnits.displayExOh[6] != "") {
+      _showWinDialog(AppUnits.displayExOh[6]);
     }
-    if (displayExOh[0] == displayExOh[3] &&
-        displayExOh[0] == displayExOh[6] &&
-        displayExOh[0] != "") {
-      _showWinDialog(displayExOh[0]);
+    if (AppUnits.displayExOh[0] == AppUnits.displayExOh[3] &&
+        AppUnits.displayExOh[0] == AppUnits.displayExOh[6] &&
+        AppUnits.displayExOh[0] != "") {
+      _showWinDialog(AppUnits.displayExOh[0]);
     }
-    if (displayExOh[1] == displayExOh[4] &&
-        displayExOh[1] == displayExOh[7] &&
-        displayExOh[1] != "") {
-      _showWinDialog(displayExOh[1]);
+    if (AppUnits.displayExOh[1] == AppUnits.displayExOh[4] &&
+        AppUnits.displayExOh[1] == AppUnits.displayExOh[7] &&
+        AppUnits.displayExOh[1] != "") {
+      _showWinDialog(AppUnits.displayExOh[1]);
     }
-    if (displayExOh[2] == displayExOh[5] &&
-        displayExOh[2] == displayExOh[8] &&
-        displayExOh[2] != "") {
-      _showWinDialog(displayExOh[2]);
+    if (AppUnits.displayExOh[2] == AppUnits.displayExOh[5] &&
+        AppUnits.displayExOh[2] == AppUnits.displayExOh[8] &&
+        AppUnits.displayExOh[2] != "") {
+      _showWinDialog(AppUnits.displayExOh[2]);
     }
-    if (displayExOh[6] == displayExOh[4] &&
-        displayExOh[6] == displayExOh[2] &&
-        displayExOh[6] != "") {
-      _showWinDialog(displayExOh[6]);
+    if (AppUnits.displayExOh[6] == AppUnits.displayExOh[4] &&
+        AppUnits.displayExOh[6] == AppUnits.displayExOh[2] &&
+        AppUnits.displayExOh[6] != "") {
+      _showWinDialog(AppUnits.displayExOh[6]);
     }
-    if (displayExOh[0] == displayExOh[4] &&
-        displayExOh[0] == displayExOh[8] &&
-        displayExOh[0] != "") {
-      _showWinDialog(displayExOh[0]);
-    } else if (filledBoxes == 9) {
+    if (AppUnits.displayExOh[0] == AppUnits.displayExOh[4] &&
+        AppUnits.displayExOh[0] == AppUnits.displayExOh[8] &&
+        AppUnits.displayExOh[0] != "") {
+      _showWinDialog(AppUnits.displayExOh[0]);
+    } else if (AppUnits.filledBoxes == 9) {
       _showDrawDialog();
     }
   }
@@ -302,18 +298,18 @@ class _HomePageState extends State<HomePage> {
           );
         });
     if (winner == "O") {
-      ohScore += 1;
+      AppUnits.ohScore += 1;
     } else if (winner == "X") {
-      exScore += 1;
+      AppUnits.exScore += 1;
     }
   }
 
   void _clearBoard() {
     setState(() {
       for (int i = 0; i < 9; i++) {
-        displayExOh[i] = "";
+        AppUnits.displayExOh[i] = "";
       }
     });
-    filledBoxes = 0;
+    AppUnits.filledBoxes = 0;
   }
 }
