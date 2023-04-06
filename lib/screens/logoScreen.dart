@@ -16,11 +16,11 @@ class _LogoScreenState extends State<LogoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
-      body: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: Container(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+                padding: const EdgeInsets.all(50),
                 decoration: BoxDecoration(
                   color: Colors.grey.shade800,
                 ),
@@ -29,12 +29,9 @@ class _LogoScreenState extends State<LogoScreen> {
                       style: TextStyle(
                           fontSize: 40, color: Colors.white, letterSpacing: 2)),
                 )),
-          ),
-          Expanded(
-            flex: 2,
-            child: Center(
+            Center(
               child: AvatarGlow(
-                endRadius: 200,
+                endRadius: 180,
                 duration: const Duration(seconds: 2),
                 glowColor: Colors.white,
                 repeat: true,
@@ -67,9 +64,7 @@ class _LogoScreenState extends State<LogoScreen> {
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: GestureDetector(
+            GestureDetector(
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const HomePage()));
@@ -78,6 +73,7 @@ class _LogoScreenState extends State<LogoScreen> {
                 padding: const EdgeInsets.only(
                     left: 50, right: 50, top: 70, bottom: 50),
                 child: Container(
+                  padding: const EdgeInsets.all(12),
                   alignment: Alignment.center,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -116,8 +112,8 @@ class _LogoScreenState extends State<LogoScreen> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
